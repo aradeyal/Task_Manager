@@ -1,54 +1,85 @@
-# React + TypeScript + Vite
+# 📝 Task Manager
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack task management application built with:
 
-Currently, two official plugins are available:
+- 🔷 **React + TypeScript** (Frontend)
+- 🟢 **Node.js (HTTP module)** (Backend)
+- 🍃 **MongoDB + Mongoose** (Database)
+- 🔐 **JWT Authentication**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🚀 Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- ✅ Register / Login with JWT tokens
+- 🧾 Add, edit, delete, and complete tasks
+- 📆 Assign due date, time, and category to each task
+- 🔎 Filter tasks by category and search text
+- 🌙 Toggle between light/dark mode
+- 🔐 Only logged-in users can manage their own tasks
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 📦 Tech Stack
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+| Part        | Tech                       |
+|-------------|----------------------------|
+| Frontend    | React + TypeScript + Vite  |
+| Backend     | Node.js (http module)      |
+| Auth        | JWT                        |
+| Database    | MongoDB + Mongoose         |
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+---
+
+## 🛠️ Setup Instructions
+
+### 🔧 Backend
+
+1. Create a `.env` file in the `backend/` folder:
+    ```env
+    MONGO_URI=your_mongodb_connection_string
+    JWT_SECRET=your_secret_key
+    ```
+
+2. Install dependencies:
+
+    ```bash
+    npm install
+    ```
+
+3. Build and run the server:
+
+    ```bash
+    npm run start:server
+    ```
+
+---
+
+### 💻 Frontend
+
+1. Navigate to the root folder (where `vite.config.ts` is)
+2. Start the development server:
+
+    ```bash
+    npm run dev
+    ```
+
+---
+
+## 📸 Screenshots
+![image](https://github.com/user-attachments/assets/6e72b87d-d349-4806-8055-9036b5bb9883)
+![image](https://github.com/user-attachments/assets/55e34e99-3628-46ad-8fa8-8e84061c1f6f)
+![image](https://github.com/user-attachments/assets/7682a1c7-c092-4405-bd3d-6de7e63dcdff)
+
+
+---
+
+## 🧠 Author
+
+- [@aradeyal](https://github.com/aradeyal)
+
+---
+
+## 📄 License
+
+This project is open-source. You can use it freely.
