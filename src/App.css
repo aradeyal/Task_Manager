@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+:root {
+  --bg: #f8f8fa;
+  --primary: #4f46e5;
+  --danger: #ef4444;
+  --card: #ffffff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --radius: 8px;
+  --shadow: 0 2px 6px rgba(0,0,0,.08);
+  --done-bg: #e0e7ff;
+  --done-text: #4338ca;
+}
+
+body.dark {
+  --bg: #1f2937;
+  --card: #2d3748;
+  --text: #f9fafb;
+  --muted: #a0aec0;
+  --done-bg: #4c51bf;
+  --done-text: #e0e7ff;
+}
+
+* {
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+h1 {
+  text-align: center;
+  margin: 32px 0 24px;
+  font-weight: 600;
+}
+
+/* טופס */
+.task-form {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.task-form input {
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: var(--radius);
+  font-size: 15px;
+  min-width: 160px;
+}
+
+.task-form input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+/* כפתורים */
+.btn {
+  padding: 10px 24px;
+  font-size: 15px;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transform: scale(1);
+}
+
+.btn:hover {
+  transform: scale(1.04);
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+}
+.btn-primary:hover { background: #4338ca; }
+
+.btn-secondary {
+  background: #e5e7eb;
+  color: var(--text);
+}
+.btn-secondary:hover { background: #d1d5db; }
+
+.btn-danger {
+  background: #fff;
+  border: 1px solid var(--danger);
+  color: var(--danger);
+}
+.btn-danger:hover {
+  background: var(--danger);
+  color: #fff;
+}
+
+/* סינון ומיון */
+.sort-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 18px;
+  gap: 6px;
+}
+
+select, .sort-wrap input[type="text"] {
+  padding: 6px 10px;
+  border-radius: var(--radius);
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+}
+
+/* רשימת משימות */
+.task-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+.task-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 14px 18px;
+  margin-bottom: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInUp 0.4s ease forwards;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.task-card.removing {
+  opacity: 0;
+  transform: scale(0.7);
+}
+
+/* כניסה */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* כותרת משימה */
+.task-title {
+  font-weight: 600;
+  transition: color 0.3s, text-decoration 0.3s;
+}
+
+.task-meta {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* משימה מסומנת */
+.completed {
+  background: var(--done-bg);
+}
+.completed .task-title {
+  color: var(--done-text);
+  text-decoration: line-through;
+}
+.completed .task-meta {
+  color: #6d28d9;
+}
+
+/* כפתורים בשורה */
+.inline-actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* אפקט checkbox */
+input[type="checkbox"] {
+  transform: scale(1);
+  transition: transform 0.2s ease;
+}
+
+input[type="checkbox"]:active {
+  transform: scale(1.3);
+}
+
+/* Popup */
+.popup {
+  padding: 10px 20px;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  width: fit-content;
+  margin: 0 auto 10px;
+  animation: fadeInOut 2s ease;
+  font-weight: bold;
+}
+
+.popup.success {
+  background: #16a34a;
+  color: white;
+}
+
+.popup.danger {
+  background: #dc2626;
+  color: white;
+}
+
+@keyframes fadeInOut {
+  0%   { opacity: 0; transform: scale(0.95); }
+  10%  { opacity: 1; transform: scale(1); }
+  90%  { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(0.95); }
+}
+
+body {
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+.task-card {
+  transition: background 0.4s ease, color 0.4s ease, transform 0.3s;
+}
